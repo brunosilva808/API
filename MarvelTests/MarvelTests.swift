@@ -1,0 +1,44 @@
+//
+//  MarvelTests.swift
+//  MarvelTests
+//
+//  Created by Bruno Silva on 16/11/2018.
+//
+
+import XCTest
+@testable import Marvel
+
+class MarvelTests: XCTestCase {
+
+    override func setUp() {
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    }
+
+    func testExample() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+
+    func testPerformanceExample() {
+        // This is an example of a performance test case.
+        self.measure {
+            // Put the code you want to measure the time of here.
+        }
+    }
+    
+    func testServiceGetURI() {
+        let urlsString = "http://gateway.marvel.com/v1/public/characters/1017100/comics"
+        
+        XCTAssertNotNil(NetworkManager().getResourceUri(urlString: urlsString, onSuccess: { (response) in }, onError: { (error) in}) {})
+    }
+
+    func testServiceGetData() {
+        let page = 0
+        XCTAssertNotNil(NetworkManager().getData(endpoint: .characters, page: page, onSuccess: { (response) in }, onError: { (error) in}) {})
+    }
+    
+}
